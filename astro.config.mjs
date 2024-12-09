@@ -25,19 +25,20 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/afoim',
 			},
-			// sidebar: [
-			// 	{
-			// 		label: 'Guides',
-			// 		items: [
-			// 			// Each item here is one entry in the navigation menu.
-			// 			{ label: 'Example Guide', slug: '开始/index' },
-			// 		],
-			// 	},
-			// 	{
-			// 		label: 'Reference',
-			// 		autogenerate: { directory: 'reference' },
-			// 	},
-			// ],
+			sidebar: [
+				{
+				  label: '开始',
+				  items: [
+					{ label: '快速开始', link: '/start' }
+				  ],
+				},
+				{
+				  label: '部署QQBot',
+				  items: [
+					{ label: 'NapCat', link: '/qqbot/napcat' }
+				  ],
+				},
+			],
 		}),
 	],
 });
