@@ -29,13 +29,13 @@ export default defineConfig({
 				{
 				  label: '开始',
 				  items: [
-					{ label: '快速开始', link: '/start' }
+					'start',
 				  ],
 				},
 				{
 				  label: '部署QQBot',
 				  items: [
-					{ label: 'NapCat', link: '/qqbot/napcat' }
+					'qqbot/napcat',
 				  ],
 				},
 			],
