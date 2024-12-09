@@ -1,0 +1,44 @@
+---
+title: 部署NapCat
+description: A guide in my new Starlight docs site.
+---
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+<LinkCard
+  title="NapCat - Github"
+  href="https://github.com/NapNeko/NapCatQQ"
+  target="_blank"
+  description="现代化的基于 NTQQ 的 Bot 协议端实现"
+/>
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+<Aside type="caution">本教程仅适用于Windows。</Aside>
+
+<Steps>
+
+1. 下载无头的NapCat
+
+    前往[NapCat Github Releases](https://github.com/NapNeko/NapCatQQ/releases)找到 `NapCat.Shell.zip` 下载，然后将其解压到一个空文件夹
+
+2. 运行并登录NapCat
+
+    在文件夹内打开cmd，运行
+    ```shell
+    launcher.bat 1234567890
+    ```
+    其中 `1234567890` 是你的 Bot QQ号
+
+    之后cmd内会弹出一个二维码，使用手机QQ扫码登录即可。
+
+
+3. 配置NapCat
+
+    登录成功后，在cmd最开始输出的几条日志找到类似 `[NapCat] [WebUi] WebUi Local Panel Url: http://127.0.0.1:6099/webui?token=0h4m4o9dqkp` 的日志，将链接到浏览器打开即可看到NapCat的WebUI。
+
+    如图配置即可
+    
+
+
+</Steps>
