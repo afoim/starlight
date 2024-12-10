@@ -16,7 +16,7 @@ export default defineConfig({
 				},
 			  },
 			editLink: {
-				baseUrl: 'https://github.com/afoim/starlight/edit/main/docs/',
+				baseUrl: 'https://github.com/afoim/starlight/edit/main/',
 			},
 			logo: {
 				src: '/public/AcoFork.webp',
