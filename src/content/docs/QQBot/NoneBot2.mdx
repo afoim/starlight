@@ -1,0 +1,146 @@
+---
+title: 部署NoneBot2
+---
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+<LinkCard
+  title="NoneBot2 - 官网"
+  href="https://nonebot.dev/docs/"
+  target="_blank"
+  description="NoneBot2 是一个现代、跨平台、可扩展的 Python 聊天机器人框架"
+/>
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+
+<Aside type="caution">本教程仅适用于Windows。</Aside>
+
+<Steps>
+
+1. 安装Scoop
+
+    https://scoop.sh/
+
+2. 安装Python
+
+    ```shell
+    scoop install python
+    ```
+
+
+3. 配置Python国内镜像源
+
+    USTC（中科大）镜像源：
+    ```shell
+    pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple
+    ```
+
+    清华大学镜像源：
+    ```shell
+    pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+    ```
+
+4. 安装pipx
+
+    ```shell
+    scoop install pipx
+    ```
+
+5. 安装nb-cli（NoneBot2的命令行工具）
+
+    ```shell
+    pipx install nb-cli
+    ```
+
+6. 安装[nb-bootstrap](https://github.com/lgc-NB2Dev/nb-cli-plugin-bootstrap)（NoneBot2的快速启动工具）
+
+    ```shell
+    nb self install nb-cli-plugin-bootstrap
+    ```
+7. 创建一个新的NoneBot2示例项目
+
+    ```shell
+    nb bs
+    ```
+
+    输出示例：
+    ```shell    
+    PS C:\Users\Administrator\Desktop> nb bs
+    加载适配器列表中……
+    请输入项目名称
+    [?] 请输入 > onanibot
+    [?] 请选择你想要使用的适配器 OneBot V11 (OneBot V11 协议)
+    请输入 Bot 超级用户，超级用户拥有对 Bot 的最高权限（如对接 QQ 填 QQ 号即可）（留空回车结束输入）
+    [?] 第 1 项 > 88888888
+    [?] 第 2 项 >
+    请输入 Bot 昵称，消息以 Bot 昵称开头可以代替艾特（留空回车结束输入）
+    [?] 第 1 项 >
+    请输入 Bot 命令起始字符，消息以起始符开头将被识别为命令，
+    如果有一个指令为 查询，当该配置项中有 "/" 时使用 "/查询" 才能够触发，
+    留空将使用默认值 ['', '/', '#']（留空回车结束输入）
+    [?] 第 1 项 >
+    请输入 Bot 命令分隔符，一般用于二级指令，
+    留空将使用默认值 ['.', ' ']（留空回车结束输入）
+    [?] 第 1 项 >
+    请输入 NoneBot2 监听地址，如果要对公网开放，改为 0.0.0.0 即可
+    [?] 请输入 > 127.0.0.1
+    请输入 NoneBot2 监听端口，范围 1 ~ 65535，请保证该端口号与连接端配置相同，或与端口映射配置相关
+    [?] 请输入 > 9090  <-- 要和NapCat设置的端口一致
+    [?] 是否在项目目录中释出快捷启动脚本？ Yes
+    [?] 是否将 localstore 插件的存储路径重定向到项目路径下以便于后续迁移 Bot？ Yes
+    [?] 是否使用超级用户 Ping 指令回复插件？ Yes
+    [?] 是否安装 logpile 插件提供日志记录到文件功能？ Yes
+    [?] 是否在启动脚本中使用 webui 插件启动项目以使用网页管理 NoneBot？（该插件仍在开发中，不推荐用于生产环境） No
+    成功新建项目 onanibot
+    [?] 是否新建虚拟环境？ Yes
+    正在 C:\Users\Administrator\Desktop\onanibot\.venv 中使用 Python C:\Users\Administrator\scoop\apps\python\current\python.exe 创建虚拟环境
+    创建虚拟环境成功
+    [?] 是否需要修改或清除 pip 的 PyPI 镜像源配置？ No
+    [?] 是否立即安装项目依赖？ Yes
+    正在安装项目依赖
+    依赖安装成功
+    [?] 请选择需要启用的内置插件
+    项目配置完毕，开始使用吧！
+    ```
+
+8. 启动NoneBot2
+
+    ```shell
+    nb run --reload
+    ```
+
+    如果成功被NapCat连接到，则会在控制台输出：
+
+    ```shell
+    [INFO] nonebot | OneBot V11 | Bot 12345678 connected
+    ```
+</Steps>
+
+NoneBot2的文件结构：
+
+<FileTree>
+- onanibot
+    - .venv
+        - （Python虚拟环境文件）
+    - __pycache__
+        - （Python缓存文件）
+    - src
+        - plugins
+            - src
+                - （NoneBot2插件）
+    - #更新所有插件.bat
+    - #进入虚拟环境.bat
+    - #启动.bat
+    - .env.prod
+    - bot.py
+    - pyproject.toml
+</FileTree>
+
+如果你需要开发插件，首先需要进入NoneBot2的虚拟环境：
+
+```shell
+nb shell
+```
+
+如果你需要更改NoneBot2的配置，则需要编辑 `.env.prod` 文件

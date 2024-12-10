@@ -36,6 +36,7 @@ export default defineConfig({
 				  label: '部署QQBot',
 				  items: [
 					'qqbot/napcat',
+					'qqbot/nonebot2',
 				  ],
 				},
 			],
