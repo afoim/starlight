@@ -33,6 +33,12 @@ export default defineConfig({
 				  ],
 				},
 				{
+					label: '绕GFW',
+					items: [
+					  'bypass-gfw',
+					],
+				},
+				{
 				  label: '部署QQBot',
 				  items: [
 					'qqbot/napcat',
